@@ -14,8 +14,6 @@ services:
       - ./pgdata:/var/lib/postgresql/data
     ports:
       - 5433:5432
-    networks:
-      - app-network
 
   app:
     build: .
@@ -27,12 +25,6 @@ services:
       - "5000:5000"
     depends_on:
       - db
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
 
 
 
